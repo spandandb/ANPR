@@ -4,7 +4,7 @@ from rest_framework.response import Response
 import cv2
 import numpy as np
 import pytesseract
-from tkinter import *
+# from tkinter import *
 
 def get_number_plate(file_path):
     # command to run the pytesseract in order to convert the image text into python string
