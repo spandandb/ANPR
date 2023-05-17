@@ -5,18 +5,19 @@ import os
 import numpy
 import cv2
 import numpy as np
-import pytesseract
+# import pytesseract
 # from tkinter import *
 import base64
 import csv
 from car_details.models import CarDetail
+from django.core import serializers
 
 def get_number_plate(file):
     # command to run the pytesseract in order to convert the image text into python string
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     # linking the haar cascade
-    cascade = cv2.CascadeClassifier(os.path.join(settings.BASE_DIR, "cascade\haar_cascade.xml"))
+    cascade = cv2.CascadeClassifier(os.path.join(settings.BASE_DIR, "cascade/haar_cascade.xml"))
 
     # reading the input image
     # img = cv2.imread("Photos\cars5.jpg")
@@ -57,20 +58,23 @@ def get_number_plate(file):
     jpg_as_text = base64.b64encode(buffer)
 
     # read the text on the plate
-    read = pytesseract.image_to_string(plate, lang='eng')
-    read = ''.join(e for e in read if e.isalnum())
+    # read = pytesseract.image_to_string(plate, lang='eng')
+    # read = ''.join(e for e in read if e.isalnum())
     # print(read)
 
     # outlining the detected number plate on the original image
 
     cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 4)
-    cv2.putText(img, read, (x, y-5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (0, 255, 0), 2)
+    # cv2.putText(img, read, (x, y-5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (0, 255, 0), 2)
     return jpg_as_text
 
 
 @api_view(['POST'])
 def get_details(request):
-    return Response({"image": get_number_plate(request.FILES['image'])})
+    image_file = request.FILES['image']
+    number_plate = get_number_plate(image_file)
+    print(CarDetail.objects.filter(file_name=image_file.name)[0])
+    return Response({"image": number_plate, 'car_details': serializers.serialize('json', CarDetail.objects.filter(file_name=image_file.name))})
 
 
 @api_view(['GET'])
@@ -81,5 +85,5 @@ def fill_db(request):
         
         # displaying the contents of the CSV file
         for line in list(csvFile)[1:]:
-            CarDetail.objects.create(file_name=line[1], number=line[2], x_min=line[3], y_min=line[4], x_max=line[5], y_max=line[6], owner=line[7], address=line[8], car_type=line[9], purchase_date=line[10], number_of_owners=line[11], accident_history=line[12], reason=line[13], km_reading=line[14])
+            CarDetail.objects.create(file_name=line[1].split('.')[0] + '.jpg', number=line[2], x_min=line[3], y_min=line[4], x_max=line[5], y_max=line[6], owner=line[7], address=line[8], car_type=line[9], purchase_date=line[10], number_of_owners=line[11], accident_history=line[12], reason=line[13], km_reading=line[14])
     return Response({'detail': 'OK'})
