@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.get_details),
+    path('fill-db', views.fill_db),
 ]

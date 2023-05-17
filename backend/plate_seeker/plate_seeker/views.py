@@ -8,6 +8,8 @@ import numpy as np
 import pytesseract
 # from tkinter import *
 import base64
+import csv
+from car_details.models import CarDetail
 
 def get_number_plate(file):
     # command to run the pytesseract in order to convert the image text into python string
@@ -69,3 +71,15 @@ def get_number_plate(file):
 @api_view(['POST'])
 def get_details(request):
     return Response({"image": get_number_plate(request.FILES['image'])})
+
+
+@api_view(['GET'])
+def fill_db(request):
+    with open('numberplate.csv', mode ='r')as file:
+        # reading the CSV file
+        csvFile = csv.reader(file)
+        
+        # displaying the contents of the CSV file
+        for line in list(csvFile)[1:]:
+            CarDetail.objects.create(file_name=line[1], number=line[2], x_min=line[3], y_min=line[4], x_max=line[5], y_max=line[6], owner=line[7], address=line[8], car_type=line[9], purchase_date=line[10], number_of_owners=line[11], accident_history=line[12], reason=line[13], km_reading=line[14])
+    return Response({'detail': 'OK'})
