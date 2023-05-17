@@ -5,6 +5,7 @@ import axios from "axios";
 export default function Upload() {
   const [image, setImage] = useState("");
   const [user, setUser] = useState();
+  const [details, setDetails] = useState();
 
   function handleImage(e) {
     setImage(e.target.files[0]);
@@ -12,17 +13,7 @@ export default function Upload() {
     // e.preventDefault();
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    e.target.submit();
-  }
-
   function handleApi() {
-    // const formData = new formData();
-    // formData.append('image',image);
-    // axios.post('http://127.0.0.1:8000/', image).then((res) => {
-    //     console.log(res);
-    // })
     let files = image;
     let formData = new FormData();
     //Adding files to the formdata
@@ -35,7 +26,8 @@ export default function Upload() {
       data: formData,
     })
       .then((res) => {
-        console.log(res);
+        setUser(res);
+        setDetails(JSON.parse(res.data.car_details)[0].fields);
       }) // Handle the response from backend here
       .catch((err) => {}); // Catch errors if any
   }
@@ -63,106 +55,113 @@ export default function Upload() {
               <button type = 'submit'>Submit</button>
           </form> */}
       </div>
-      <div className="my-10">
+      {user !== undefined && (
         <div>
-          <h1 className="font-bold text-md text-center text-yellow-300">
-            Extracted Number Plate Image
-          </h1>
-          {/* <img src={`data:image/jpeg;base64,${data}`} /> */}
-        </div>
-      </div>
-      <div className="m-10 p-10">
-        <div className="flex flex-col">
-          <div className="overflow-x-auto">
-            <div className="p-1.5 w-full inline-block align-middle">
-              <div className="overflow-hidden border rounded-lg">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-left text-gray-800  uppercase "
-                      >
-                        Number Plate
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-left text-gray-800 uppercase "
-                      >
-                        Name
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-left text-gray-800  uppercase "
-                      >
-                        Address
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
-                      >
-                        Car Type
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
-                      >
-                        Purchase Date
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
-                      >
-                        No. of Previous Owners
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
-                      >
-                        Accident History
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
-                      >
-                        Reason
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200 text-white">
-                    <tr>
-                      <td className="px-6 py-4 text-sm text-bold text-green-500 font-medium whitespace-nowrap">
-                        WB10D1467
-                      </td>
-                      <td className="px-6 py-4 text-sm  whitespace-nowrap">
-                        Priyanka Laha
-                      </td>
-                      <td className="px-6 py-4 text-sm  whitespace-nowrap">
-                        39/2, D. H. Road
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                        Edit
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                        19-JAN-97
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                        1
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-red-500 text-right whitespace-nowrap">
-                        Yes
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-right whitespace-wrap">
-                        drink and drive
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+          <div className="my-10">
+            <div>
+              <h1 className="font-bold text-md text-center text-yellow-300">
+                Extracted Number Plate Image
+              </h1>
+              <img
+                src={`data:image/jpeg;base64,${user.data.image}`}
+                alt="Not Avialable"
+              />
+            </div>
+          </div>
+          <div className="m-10 p-10">
+            <div className="flex flex-col">
+              <div className="overflow-x-auto">
+                <div className="p-1.5 w-full inline-block align-middle">
+                  <div className="overflow-hidden border rounded-lg">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-left text-gray-800  uppercase "
+                          >
+                            Number Plate
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-left text-gray-800 uppercase "
+                          >
+                            Name
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-left text-gray-800  uppercase "
+                          >
+                            Address
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
+                          >
+                            Car Type
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
+                          >
+                            Purchase Date
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
+                          >
+                            No. of Previous Owners
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
+                          >
+                            Accident History
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-bold text-right text-gray-800  uppercase "
+                          >
+                            Reason
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200 text-white">
+                        <tr>
+                          <td className="px-6 py-4 text-sm text-bold text-green-500 font-medium whitespace-nowrap">
+                            {details.number}
+                          </td>
+                          <td className="px-6 py-4 text-sm  whitespace-nowrap">
+                            {details.owner}
+                          </td>
+                          <td className="px-6 py-4 text-sm  whitespace-wrap">
+                            {details.address}
+                          </td>
+                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                            {details.car_type}
+                          </td>
+                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                            {details.purchase_date}
+                          </td>
+                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                            {details.number_of_owners}
+                          </td>
+                          <td className="px-6 py-4 text-sm font-medium text-red-500 text-right whitespace-nowrap">
+                            {details.accident_history}
+                          </td>
+                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-wrap">
+                            {details.reason}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

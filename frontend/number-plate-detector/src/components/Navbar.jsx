@@ -1,20 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { RiMenu3Fill, RiCloseFill } from "react-icons/ri";
-import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
-  const [nav, setNav] = useState(false);
-  const [navColor, setNavColor] = useState(false);
-
-  const handleNav = () => {
-    setNav(!nav);
-  };
-
-  const handleClick = () => {
-    setNav(false);
-  };
-
   return (
     <div className={`w-full top-0 sticky z-20 bg-[#35055B] rounded-md`}>
       <div className="text-white flex justify-between items-center h-20 mx-auto max-w-[1240px] px-4">
