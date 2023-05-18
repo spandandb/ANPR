@@ -9,7 +9,7 @@ export default function Upload() {
 
   function handleImage(e) {
     setImage(e.target.files[0]);
-    console.log(e.target.files);
+    // console.log(e.target.files);
     // e.preventDefault();
   }
 
@@ -46,7 +46,7 @@ export default function Upload() {
           hover:text-yellow-300"
           onClick={handleApi}
         >
-          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
             Submit
           </span>
         </button>
