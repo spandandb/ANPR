@@ -59,12 +59,13 @@ export default function Upload() {
         <div>
           <div className="my-10">
             <div>
-              <h1 className="font-bold text-md text-center text-yellow-300">
+              <h1 className="font-bold text-md text-center text-yellow-300 my-10">
                 Extracted Number Plate Image
               </h1>
               <img
                 src={`data:image/jpeg;base64,${user.data.image}`}
-                alt="Not Avialable"
+                alt="Not Available"
+                className="mx-auto"
               />
             </div>
           </div>
