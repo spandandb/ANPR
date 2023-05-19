@@ -44,7 +44,7 @@ export default function Footer() {
               <li className="py-2 text-sm ">React JS</li>
               <li className="py-2 text-sm ">Django</li>
               <li className="py-2 text-sm ">Pytesseract</li>
-              <li className="py-2 text-sm ">SQL Lite</li>
+              <li className="py-2 text-sm ">SQLite</li>
             </ul>
           </div>
           <div>
