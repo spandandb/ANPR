@@ -22,15 +22,9 @@ export default function Footer() {
               Our Creators
             </h6>
             <ul>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                Spandan Das Barman
-              </li>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                Saurabh Kumar
-              </li>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                Arijit Laha
-              </li>
+              <li className="py-2 text-sm">Spandan Das Barman</li>
+              <li className="py-2 text-sm">Saurabh Kumar</li>
+              <li className="py-2 text-sm">Arijit Laha</li>
             </ul>
           </div>
           <div>
@@ -38,9 +32,7 @@ export default function Footer() {
               Our College
             </h6>
             <ul>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                STCET, Kolkata
-              </li>
+              <li className="py-2 text-sm ">STCET, Kolkata</li>
             </ul>
           </div>
           <div>
@@ -48,21 +40,11 @@ export default function Footer() {
               Technologies Utilised
             </h6>
             <ul>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                Python
-              </li>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                React JS
-              </li>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                Django
-              </li>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                Pytesseract
-              </li>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                SQL Lite
-              </li>
+              <li className="py-2 text-sm ">Python</li>
+              <li className="py-2 text-sm ">React JS</li>
+              <li className="py-2 text-sm ">Django</li>
+              <li className="py-2 text-sm ">Pytesseract</li>
+              <li className="py-2 text-sm ">SQL Lite</li>
             </ul>
           </div>
           <div>
@@ -70,9 +52,7 @@ export default function Footer() {
               Under The Guidance of
             </h6>
             <ul>
-              <li className="py-2 text-sm cursor-pointer hover:text-yellow-300">
-                {"   "}Dr. Sanchita Saha Ray
-              </li>
+              <li className="py-2 text-sm ">{"   "}Dr. Sanchita Saha Ray</li>
             </ul>
           </div>
         </div>

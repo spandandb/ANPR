@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export default function Landing() {
   return (
     <div id="home h-[50vh]">
-      <img className="w-full" src={bgImg} />
+      <img className="w-full" src={bgImg} alt="" />
       <div className="max-w-[800px] mx-auto text-center flex flex-col justify-left absolute top-1/2 left-1/4 -translate-x-1/2">
         <p className="text-white font-bold p-2 text-lg md:text-2xl">
           ONE STOP SOLUTION FOR SECURING YOUR
@@ -20,7 +20,10 @@ export default function Landing() {
           </p>
           <Typed
             className="text-yellow-300 font-bold text-md sm:text-xl md:text-3xl ml-2"
-            strings={["Number Plate Verification", "Car Details Extraction"]}
+            strings={[
+              "Number Plate Verification",
+              "Vehicle Details Extraction",
+            ]}
             typeSpeed={160}
             backSpeed={160}
             loop
