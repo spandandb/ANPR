@@ -129,28 +129,28 @@ export default function Upload() {
                       </thead>
                       <tbody className="divide-y divide-gray-200 text-white">
                         <tr>
-                          <td className="px-6 py-4 text-sm text-bold text-green-500 font-medium whitespace-nowrap">
+                          <td className="px-6 py-4 text-lg text-bold font-medium whitespace-nowrap">
                             {details.number}
                           </td>
-                          <td className="px-6 py-4 text-sm  whitespace-nowrap">
+                          <td className="px-6 py-4 text-lg  whitespace-nowrap">
                             {details.owner}
                           </td>
                           <td className="px-6 py-4 text-sm  whitespace-wrap">
                             {details.address}
                           </td>
-                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                          <td className="px-6 py-4 text-sm font-medium text-center whitespace-nowrap">
                             {details.car_type}
                           </td>
-                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                          <td className="px-6 py-4 text-sm font-medium text-center whitespace-nowrap">
                             {details.purchase_date}
                           </td>
-                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                          <td className="px-6 py-4 text-sm font-medium text-center whitespace-nowrap">
                             {details.number_of_owners}
                           </td>
-                          <td className="px-6 py-4 text-sm font-medium text-red-500 text-right whitespace-nowrap">
+                          <td className="px-6 py-4 text-lg font-medium text-center whitespace-nowrap">
                             {details.accident_history}
                           </td>
-                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-wrap">
+                          <td className="px-6 py-4 text-sm font-medium text-center whitespace-wrap">
                             {details.reason}
                           </td>
                         </tr>
