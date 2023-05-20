@@ -45,6 +45,7 @@ export default function Footer() {
               <li className="py-2 text-sm ">Django</li>
               <li className="py-2 text-sm ">Pytesseract</li>
               <li className="py-2 text-sm ">SQLite</li>
+              <li className="py-2 text-sm ">Tailwind CSS</li>
             </ul>
           </div>
           <div>
