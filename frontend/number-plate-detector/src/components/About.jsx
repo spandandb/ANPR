@@ -24,20 +24,20 @@ export default function SliderComponent() {
             <img
               className="object-fill m-auto w-1/2 h-auto"
               src={AboutImg1}
-              alt="image slide 1"
+              alt="slide 1"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               className="object-fill m-auto w-1/2 h-auto"
               src={AboutImg2}
-              alt="image slide 2"
+              alt="slide 2"
             />
           </SwiperSlide>
         </Swiper>
       </div>
       <div className="m-16 pb-10">
-        <h1 class="mb-10 text-5xl font-bold text-yellow-300 text-center underline decoration-solid">
+        <h1 className="mb-10 text-5xl font-bold text-yellow-300 text-center underline decoration-solid">
           Our Vision
         </h1>
         <p className="text-xl font-light leading-relaxed mt-6 mb-4 text-pink-400">
