@@ -129,7 +129,7 @@ export default function Upload() {
                       </thead>
                       <tbody className="divide-y divide-gray-200 text-white">
                         <tr>
-                          <td className="px-6 py-4 text-lg text-bold font-medium whitespace-nowrap">
+                          <td className="px-6 py-4 text-lg text-bold font-medium text-center whitespace-nowrap">
                             {details.number}
                           </td>
                           <td className="px-6 py-4 text-lg  whitespace-nowrap">
